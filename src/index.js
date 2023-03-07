@@ -1,6 +1,6 @@
 // SET UP CONST
 const URL =
-  "https://script.google.com/macros/s/AKfycbzmTFSptu60CQQ__bYQ7TS1KzfdjjQJf7qEXq_SEeyKRWTwr9zZiO6PJDfN3oHLaPS1Jg/exec";
+  "https://script.google.com/macros/s/AKfycbwReGkZ6KcMKLQItRbCUTUT-MbVjk__IJeaueXcxoDT4n9PaTbsTN6GQuFpIC6VBZitow/exec";
 var ITEM_LIST = [];
 var DR_LIST = [];
 var OS_LIST = [];
@@ -57,15 +57,15 @@ function getTextDate(date) {
 searchBtn.addEventListener("click", () => {
   var submitData = {
     type: "search",
-    id: SHIFT
+    id: SHIFT,
   };
   showModal(modalElement);
   fetch(URL, {
     method: "POST",
     headers: {
-      "Content-Type": "text/plain;charset=utf-8"
+      "Content-Type": "text/plain;charset=utf-8",
     },
-    body: JSON.stringify(submitData) // body data type must match "Content-Type" header
+    body: JSON.stringify(submitData), // body data type must match "Content-Type" header
   })
     .then((response) => {
       return response.json();
@@ -126,16 +126,16 @@ submitBtn.addEventListener("click", (event) => {
     sale: getSaleList(),
     dr: getDrList(),
     os: getOsList(),
-    cash: getCashFlow()
+    cash: getCashFlow(),
   };
   console.log(submitData);
   showModal(modalElement);
   fetch(URL, {
     method: "POST",
     headers: {
-      "Content-Type": "text/plain;charset=utf-8"
+      "Content-Type": "text/plain;charset=utf-8",
     },
-    body: JSON.stringify(submitData) // body data type must match "Content-Type" header
+    body: JSON.stringify(submitData), // body data type must match "Content-Type" header
   })
     .then((response) => {
       return response.json();
@@ -206,7 +206,7 @@ const getSaleList = () => {
       unit: itemUnit,
       price: itemPrice,
       qty: itemQty,
-      total: itemTotal
+      total: itemTotal,
     });
   });
   return sale;
@@ -264,7 +264,7 @@ const getDrTotal = () => {
   const totalDr = {
     sum: 0,
     cash: 0,
-    bank: 0
+    bank: 0,
   };
   var drs = drListEle.querySelectorAll(".dr");
   drs = [...drs];
@@ -334,7 +334,7 @@ const getDrList = () => {
         qty: drQty,
         total: drTotal,
         source: drSource,
-        note: drNote
+        note: drNote,
       });
     }
   });
@@ -395,7 +395,7 @@ const getOsTotal = () => {
   const totalOs = {
     sum: 0,
     cash: 0,
-    bank: 0
+    bank: 0,
   };
   var oss = osListEle.querySelectorAll(".os");
   oss = [...oss];
@@ -465,7 +465,7 @@ const getOsList = () => {
         qty: osQty,
         total: osTotal,
         source: osSource,
-        note: osNote
+        note: osNote,
       });
     }
   });
@@ -489,7 +489,7 @@ const getCashFlow = () => {
     shopee: shopee.value,
     baemin: baemin.value,
     cashBank: cashBank.value,
-    cashEnd: cashEnd.value
+    cashEnd: cashEnd.value,
   };
   return cashFlow;
 };
