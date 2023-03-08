@@ -1,11 +1,9 @@
 // SET UP CONST
 const URL =
-  "https://script.google.com/macros/s/AKfycbwReGkZ6KcMKLQItRbCUTUT-MbVjk__IJeaueXcxoDT4n9PaTbsTN6GQuFpIC6VBZitow/exec";
+  "https://script.google.com/macros/s/AKfycbzrLxgmAFRPOGXHwEkhLtYhBcz7a4vEjStU4kVMZwNeKzJugVUCt-2HsMvzaWOvWXns1w/exec";
 var ITEM_LIST = [];
 var DR_LIST = [];
 var OS_LIST = [];
-
-// ///////////////////////////////////////////dummy value
 
 const submitBtn = document.getElementById("submit");
 const revenueElement = document.getElementById("totalRevenue");
@@ -80,6 +78,7 @@ searchBtn.addEventListener("click", () => {
       } else {
         submitBtn.classList.remove("hidden");
       }
+
       hiddenModal(modalElement);
     })
     .catch((error) => {
@@ -150,6 +149,7 @@ submitBtn.addEventListener("click", (event) => {
       } else {
         submitBtn.classList.remove("hidden");
       }
+      console.log (data)
       alert("Đã cập nhật thành công");
       hiddenModal(modalElement);
     })
@@ -365,6 +365,7 @@ const addOs = () => {
   newOs.classList.add("os");
   newOs.id = SHIFT + "o" + newId;
   newOs.innerHTML = `
+
     <select class="name">
       <option value="" selected disabled hidden>Chi phí</option>
       ${renderOsSelect()}
@@ -580,6 +581,18 @@ const renderOsSelect = (selectedItem) => {
   });
   return text;
 };
+
+// const renderOsGroup = (selectedItem) => {
+//   var text = "";
+//   var groupList = OS_LIST.map((os) => os.group);
+//   groupList = groupList.filter((value,index)=> groupList.indexOf(value)=== index)
+//   groupList.forEach((group) => {
+//     text += `<option value="${group}"  ${
+//       group === selectedItem ? "selected" : ""
+//     }>${group}</option>`;
+//   });
+//   return text;
+// };
 
 // //////////////////////////////////handle response data
 
